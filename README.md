@@ -21,6 +21,7 @@ $ source <your_env_dir>/biop
 ~~~
 biopython==1.70
 numpy==1.13.1
+Pillow==4.2.1
 pkg-resources==0.0.0
 
 ex.:
