@@ -15,6 +15,8 @@ def distance(x, prec=2):
 
 seqs = [seq for seq in SeqIO.parse("sample.fasta", "fasta")]
 
+print len(r.CommOnly)
+
 for rest in r.CommOnly:
     print rest, rest.site
 
