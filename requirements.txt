@@ -1,0 +1,6 @@
+biopython
+numpy
+Pillow
+pkg-resources
+scipy
+tqdm
