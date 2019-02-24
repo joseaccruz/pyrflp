@@ -1,12 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-#import io
-#import os
-#import sys
-#from shutil import rmtree
+from setuptools import setup, find_packages
 
-from setuptools import setup
+import pyrflp
 
 REQUIRES_PYTHON = ''
 
@@ -26,18 +23,26 @@ with open("README.md", "r") as fh:
 
 setup(
     name="pyrflp",
-    version="0.0.1",
-    author="Jose Cruz",
-    author_email="joseaccruz@gmail.com",
-    description="Tool for easy Restriction fragment length polymorphism analysis.",
+    version=pyrflp.__version__,
+    description=pyrflp.__doc__.strip(),
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/joseaccruz/pyrflp",
+    download_url="https://github.com/joseaccruz/pyrflp",
+    author=pyrflp.__author__,
+    author_email="joseaccruz@gmail.com",
+    license=pyrflp.__license__,
+    packages=find_packages(),
+    entry_points={
+        'console_scripts': [
+            'pyrflp = pyrflp.__main__',
+        ],
+    },
     python_requires=">=3.5.0",
+    
     install_requires=REQUIRED,
     extras_require=EXTRAS,
-    include_package_data=True,
-    license="MIT",
+    
     classifiers=[
         # Trove classifiers
         # Full list: https://pypi.python.org/pypi?%3Aaction=list_classifiers
