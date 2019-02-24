@@ -121,7 +121,7 @@ def combine(dms, count, top):
 
 	return dms_top
 
-def optimize(seqs, res):
+def optimize(seqs, res, ncomb, ntop):
 	# list of DiscrimantMatrices
 	dms = []
 
@@ -139,16 +139,16 @@ def optimize(seqs, res):
 		#print(re, np.sum(M), np.sum(M) / (len(seqs)**2))
 		dms.append(DiscriminantMatrix([str(re)], M))
 
-	dms_top = combine(dms, 2, 5)
+	dms_top = combine(dms, ncomb, ntop)
 
 	for dm in dms_top:
-		print(dm, dm._perc)
+		print(dm, "(%d%%)" % int(dm._perc * 100))
 		for (r, c) in np.argwhere(dm._M == 0):
 			if r < c:
 				print("\t", seqs[r].id, seqs[c].id)
 
 
-def analyse(fasta, re_all=False, re_list=None, re_suppliers=None):
+def analyse(fasta, ncomb=2, ntop=5, re_all=False, re_list=None, re_suppliers=None):
 	# 1. get the full list of sequences to analyse
 	seqs = load_seqs(fasta)
 
@@ -159,10 +159,10 @@ def analyse(fasta, re_all=False, re_list=None, re_suppliers=None):
 	res = select_res_seqs(seqs, res)
 
 	# 4. select cutting sequences
-	optimize(seqs, res)
+	optimize(seqs, res, ncomb, ntop)
 
 
 def command(args):
-	analyse(args.fasta)
+	analyse(args.fasta, args.ncomb, args.ntop)
 
 #make_blot("sample.fasta", ["TaqI"])

@@ -40,7 +40,7 @@ def command(args):
 
     title = "file: {} / rest: {}".format(os.path.basename(args.fasta.name), args.re)
 
-    create_blot(title, gel, args.margin_top, args.margin_bottom, args.margin_left, args.margin_right, args.lane_height, args.lane_width, args.lane_sep, args.band_start, args.band_end, args.band_width)
+    create_blot(args.image, title, gel, args.margin_top, args.margin_bottom, args.margin_left, args.margin_right, args.lane_height, args.lane_width, args.lane_sep, args.band_start, args.band_end, args.band_width)
 
 
 def exp_ab(x1, y1, x2, y2):
@@ -51,7 +51,7 @@ def exp_ab(x1, y1, x2, y2):
     return a, b
 
 
-def create_blot(title, gel, mt, mb, ml, mr, lh, lw, ls, bs, be, bw):
+def create_blot(img_fname, title, gel, mt, mb, ml, mr, lh, lw, ls, bs, be, bw):
     seq_min, seq_max, seq_all = gel_stats(gel)
 
     N = len(gel.items())
@@ -103,4 +103,4 @@ def create_blot(title, gel, mt, mb, ml, mr, lh, lw, ls, bs, be, bw):
         lx += lw + ls
 
     
-    img.save("teste.png")
+    img.save(img_fname)
