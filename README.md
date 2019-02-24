@@ -1,6 +1,5 @@
 # To Do
 
-- Prepare the setup.py
 - Prepare and test pip install from git.
 - Update this README.md (include how to use it and caveats)
 - Put all common code in a separate library.
@@ -47,6 +46,11 @@ Use `pip` to download and install the tool:
 $ pip install https://github.com/joseaccruz/pyrflp/archive/master.zip
 ~~~
 
+The `pip install` command should download and install all depedencies of the tool. To check if everything is working do:
+
+~~~
+$ 
+~~~
 
 3. Install (with pip) the dependencies:
 

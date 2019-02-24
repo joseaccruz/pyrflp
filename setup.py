@@ -8,13 +8,7 @@
 
 from setuptools import setup
 
-NAME = 'pyrflp'
-DESCRIPTION = 'Tool for easy Restriction fragment length polymorphism analysis.'
-URL = 'https://github.com/me/myproject'
-EMAIL = 'joseaccruz@gmail.com'
-AUTHOR = 'Jose Cruz'
-REQUIRES_PYTHON = '>=3.5.0'
-VERSION = "0.0.1"
+REQUIRES_PYTHON = ''
 
 REQUIRED = [
     "biopython",
@@ -27,24 +21,23 @@ REQUIRED = [
 # Optional packages
 EXTRAS = {}
 
-DESCRIPTION_LONG = """Tool for easy Restriction fragment length polymorphism analysis."""
-
-
+with open("README.md", "r") as fh:
+    long_description = fh.read()
 
 setup(
-    name=NAME,
-    version=VERSION,
-    description=DESCRIPTION,
-    long_description=DESCRIPTION_LONG,
-    long_description_content_type='text/markdown',
-    author=AUTHOR,
-    author_email=EMAIL,
-    python_requires=REQUIRES_PYTHON,
-    url=URL,
+    name="pyrflp",
+    version="0.0.1",
+    author="Jose Cruz",
+    author_email="joseaccruz@gmail.com",
+    description="Tool for easy Restriction fragment length polymorphism analysis.",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    url="https://github.com/joseaccruz/pyrflp",
+    python_requires=">=3.5.0",
     install_requires=REQUIRED,
     extras_require=EXTRAS,
     include_package_data=True,
-    license='MIT',
+    license="MIT",
     classifiers=[
         # Trove classifiers
         # Full list: https://pypi.python.org/pypi?%3Aaction=list_classifiers
